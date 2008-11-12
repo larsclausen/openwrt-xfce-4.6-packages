@@ -1,0 +1,20 @@
+--- a/src/xfce-appfinder-window.c
++++ b/src/xfce-appfinder-window.c
+@@ -1201,14 +1201,15 @@ _xfce_appfinder_window_visible_func (GtkTreeModel *filter,
+         visible = TRUE;
+       else
+         {
+-          if (G_UNLIKELY (g_utf8_collate (category, window->current_category) == 0))
++          if (category && G_UNLIKELY (g_utf8_collate (category, window->current_category) == 0))
+             visible = TRUE;
+         }
+     }
+ 
+   g_free (search_text);
+   g_free (text);
+-  g_free (category);
++  if (category)
++    g_free (category);
+ 
+   return visible;
+ }
