@@ -23,7 +23,7 @@ PKG_INSTALL=1
 define Package/tango-icon-theme
   SECTION:=xorg-data
   CATEGORY:=Xorg
-  SUBMENU:=Data
+  SUBMENU:=data
   TITLE:=Tango icon theme
   URL:=http://tango.freedesktop.org/
 endef
