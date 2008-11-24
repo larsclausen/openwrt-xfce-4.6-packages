@@ -58,7 +58,7 @@ define Package/libxfce4util/install
 
 	$(INSTALL_DIR) $(1)/usr/sbin/
 	$(INSTALL_BIN) \
-		$(PKG_INSTALLAA_DIR)/usr/sbin/* \
+		$(PKG_INSTALL_DIR)/usr/sbin/* \
 		$(1)/usr/sbin
 endef
 
