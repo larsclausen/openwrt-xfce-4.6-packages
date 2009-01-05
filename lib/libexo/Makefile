@@ -48,7 +48,7 @@ define Build/InstallDev
 		$(PKG_INSTALL_DIR)/usr/include/exo-0.3/* \
 		$(1)/usr/include/exo-0.3/
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*,a} \
 		$(1)/usr/lib/
 
@@ -59,7 +59,7 @@ endef
 
 define Package/libexo/install
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/*.so* \
 		$(1)/usr/lib/
 
@@ -77,7 +77,7 @@ define Package/libexo/install
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/share/icons/hicolor/* \
 		$(1)/usr/share/icons/hicolor
-	
+
 	$(INSTALL_DIR) $(1)/usr/share/pixmaps/exo-0.3
 	$(INSTALL_DATA) \
 		$(PKG_INSTALL_DIR)/usr/share/pixmaps/exo-0.3/* \

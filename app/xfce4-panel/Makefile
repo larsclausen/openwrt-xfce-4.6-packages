@@ -40,7 +40,7 @@ define Build/InstallDev
 	$(INSTALL_DATA) \
 		$(PKG_INSTALL_DIR)/usr/include/xfce4/libxfce4panel/* \
 		$(1)/usr/include/xfce4/libxfce4panel/
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*,a} \
 		$(1)/usr/lib/
 	$(INSTALL_DATA) \
@@ -55,7 +55,7 @@ define Package/xfce4-panel/install
 		$(1)/usr/lib/
 
 	$(INSTALL_DIR) $(1)/usr/lib/xfce4/panel-plugins
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/xfce4/panel-plugins/*.so* \
 		$(1)/usr/lib/xfce4/panel-plugins
 

@@ -32,7 +32,8 @@ define Package/xfce4-session
   CATEGORY:=Xorg
   SUBMENU:=app
   TITLE:=xfce4-session
-  DEPENDS:=+libxfce4util +libxfcegui4 +p5-xml-parser +libwnck
+  DEPENDS:=+libxfce4util +libxfcegui4 +libwnck +dbus +libdbusgconf +libxfconf \
+  +libglade +iceauth +libX11 +libSM
 endef
 
 define Build/Configure
@@ -47,8 +48,8 @@ define Build/InstallDev
 		$(PKG_INSTALL_DIR)/usr/include/xfce4/xfce4-session-4.6/libxfsm/*.h \
 		$(1)/usr/include/xfce4/xfce4-session-4.6/libxfsm/
 
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/*.{so*,a,la} \
 		$(1)/usr/lib/
 
 	$(INSTALL_DATA) \
@@ -58,8 +59,8 @@ endef
 
 define Package/xfce4-session/install
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/*.{so*,a} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/*.so* \
 		$(1)/usr/lib/
 
 	$(INSTALL_DIR) $(1)/usr/lib/
@@ -68,8 +69,8 @@ define Package/xfce4-session/install
 		$(1)/usr/lib/
 
 	$(INSTALL_DIR) $(1)/usr/lib/xfce4/splash/engines
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/xfce4/splash/engines/*.{so*,a} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/xfce4/splash/engines/*.so* \
 		$(1)/usr/lib/xfce4/splash/engines
 
 	$(INSTALL_DIR) $(1)/usr/bin/

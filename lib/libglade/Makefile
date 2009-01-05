@@ -38,7 +38,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/libglade-2.0/glade}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 	    $(PKG_INSTALL_DIR)/usr/lib/libglade-2.0.{so*,la,a} \
 	    $(1)/usr/lib/
 
@@ -56,7 +56,7 @@ endef
 
 define Package/libglade/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 	    $(PKG_INSTALL_DIR)/usr/lib/libglade-2.0.so* \
 	    $(1)/usr/lib/
 endef

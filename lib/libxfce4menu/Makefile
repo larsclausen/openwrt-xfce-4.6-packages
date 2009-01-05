@@ -40,8 +40,8 @@ define Build/InstallDev
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/include/xfce4/libxfce4menu-0.1/* \
 		$(1)/usr/include/xfce4/libxfce4menu-0.1/
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*,a} \
 		$(1)/usr/lib/
 	$(INSTALL_DATA) \
 		$(PKG_INSTALL_DIR)/usr/lib/pkgconfig/* \
@@ -50,8 +50,8 @@ endef
 
 define Package/libxfce4menu/install
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/*.{so*,a} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/*.so* \
 		$(1)/usr/lib/
 endef
 

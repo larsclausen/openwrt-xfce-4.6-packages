@@ -46,7 +46,7 @@ define Build/InstallDev
 		$(PKG_INSTALL_DIR)/usr/include/xfce4/libxfprint/* \
 		$(1)/usr/include/xfce4/libxfprint/
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*,a} \
 		$(1)/usr/lib/
 
@@ -57,12 +57,12 @@ endef
 
 define Package/xfprint/install
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/*.so* \
 		$(1)/usr/lib/
 
 	$(INSTALL_DIR) $(1)/usr/lib/xfce4/xfprint-plugins
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/xfce4/xfprint-plugins/*.so* \
 		$(1)/usr/lib/xfce4/xfprint-plugins/
 

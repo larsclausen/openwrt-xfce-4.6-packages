@@ -40,8 +40,8 @@ define Build/InstallDev
 	$(INSTALL_DATA) \
 		$(PKG_INSTALL_DIR)/usr/include/xfce4/libxfcegui4/* \
 		$(1)/usr/include/xfce4/libxfcegui4
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*,a} \
 		$(1)/usr/lib/
 	$(INSTALL_DATA) \
 		$(PKG_INSTALL_DIR)/usr/lib/pkgconfig/* \
@@ -50,10 +50,10 @@ endef
 
 define Package/libxfcegui4/install
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/*.{so*,a} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/*.so* \
 		$(1)/usr/lib/
-	
+
 	$(INSTALL_DIR) $(1)/usr/lib/libglade/2.0
 	$(INSTALL_DATA) \
 		$(PKG_INSTALL_DIR)/usr/lib/libglade/2.0/*.so \

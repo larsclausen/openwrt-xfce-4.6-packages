@@ -54,8 +54,8 @@ define Build/InstallDev
 		$(PKG_INSTALL_DIR)/usr/lib/*.{la,so*} \
 		$(1)/usr/lib/
 
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/thunarx-1/*.{la,so*} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/thunarx-1/*.{so*,a,la} \
 		$(1)/usr/lib/thunarx-1/
 
 	$(INSTALL_BIN) \
@@ -69,8 +69,8 @@ endef
 
 define Package/thunar/install
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(INSTALL_DATA) \
-		$(PKG_INSTALL_DIR)/usr/lib/*.{so*,a} \
+	$(CP) \
+		$(PKG_INSTALL_DIR)/usr/lib/*.so* \
 		$(1)/usr/lib/
 
 	$(INSTALL_DIR) $(1)/usr/bin/
