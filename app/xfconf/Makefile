@@ -30,7 +30,7 @@ TARGET_LDFLAGS+= \
 define Package/libxfconf
   SECTION:=xorg-app
   CATEGORY:=Xorg
-  SUBMENU:=libarires
+  SUBMENU:=libraries
   TITLE:=libxfconf
   DEPENDS:=+libxfce4util +dbus +libdbus-glib +gtk2
 endef
